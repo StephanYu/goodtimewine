@@ -37,7 +37,11 @@ a, a:hover, a:focus {
 /* Panel */
 
 .panel-title {
-  font-weight: bold;
+  /*font-weight: bold;*/
+}
+
+.pwd-modal-heading {
+  border-radius: 0px;
 }
 
 .img-browse {

@@ -5,7 +5,8 @@ var app = angular
     'ngAnimate',
     'ngResource',    
     'ngRoute',    
-    'firebase'
+    'firebase',
+    'toaster'
   ])
   .constant('FURL', 'https://goodtimewine.firebaseio.com/')
   .config(function ($routeProvider) {
@@ -14,11 +15,19 @@ var app = angular
         templateUrl: 'views/browse.html',
         controller: 'ProductController'        
       })
+      .when('/login', {
+        templateUrl: 'views/login.html',
+        controller: 'AuthController'
+      })
+      .when('/register', {
+        templateUrl: 'views/register.html',
+        controller: 'AuthController'
+      })
       .when('/post', {
         templateUrl: 'views/post.html',
         controller: 'ProductController'
       })
-      .when('/edit/:taskId', {
+      .when('/edit/:productId', {
         templateUrl: 'views/edit.html',
         controller: 'ProductController'
       })
