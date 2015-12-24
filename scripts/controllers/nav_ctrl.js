@@ -1,7 +1,7 @@
 'use strict';
 
-app.controller('NavController', ['$scope', '$location', 'toaster', 'Auth', 
-  function($scope, $location, toaster, Auth) {
+app.controller('NavController', ['$scope', '$location', 'toaster', 'AuthFactory', 
+  function($scope, $location, toaster, AuthFactory) {
 
   $scope.currentUser = Auth.user;
   $scope.signedIn = Auth.signedIn;

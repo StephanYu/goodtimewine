@@ -1,7 +1,7 @@
 'use strict';
 
-app.controller('AuthController', ['$scope', '$location', 'toaster', 'Auth', 
-  function($scope, $location, toaster, Auth) {
+app.controller('AuthController', ['$scope', '$location', 'toaster', 'AuthFactory', 
+  function($scope, $location, toaster, AuthFactory) {
 
     if(Auth.user.provider) {
       $location.path('/');
