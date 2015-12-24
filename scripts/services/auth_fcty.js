@@ -15,10 +15,8 @@ app.factory('AuthFactory', ['FURL', '$firebaseAuth', function(FURL, $firebaseAut
         gravatar: get_gravatar(user.email, 40)
       };
 
-      // var profileRef = $firebase(ref.child('profile'));
-      // return profileRef.$set(uid, profile);
       var profileRef = ref.child('profile');
-      return profileRef.$add(uid, profile);
+      return profileRef.$set(uid, profile);
     },
 
     login: function(user) {
@@ -28,11 +26,13 @@ app.factory('AuthFactory', ['FURL', '$firebaseAuth', function(FURL, $firebaseAut
     },
 
     register: function(user) {
-      return fbAuth.$createUser({email: user.email, password: user.password}).then(function() {
-        return Auth.login(user);
-      }).then(function(data) {
-        return Auth.createProfile(data.uid, user);
-      });
+      return fbAuth.$createUser({email: user.email, password: user.password})
+        .then(function() {
+          return Auth.login(user);
+        })
+        .then(function(data) {
+          return Auth.createProfile(data.uid, user);
+        });
     },
 
     logout: function() {
