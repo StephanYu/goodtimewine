@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row title">
+    <div class="col-md-6 col-md-offset-3">
+
+      <form ng-submit="postProduct(product)">              
+        <input type="text" ng-model="product.title" class="form-control" placeholder="Product title" required><br>
+        <input type="text" ng-model="product.maker" class="form-control" placeholder="Winemaker" required><br> 
+        <input type="text" ng-model="product.year" class="form-control" placeholder="Year" required><br>             
+        <input type="text" ng-model="product.region" class="form-control" placeholder="Wine Region" required><br>      
+        <textarea ng-model="product.description" class="form-control" placeholder="Country of Origin" required></textarea><br>
+        <input type="number" ng-model="product.total" class="form-control" placeholder="Product Price" required><br>
+        <input type="submit" value="Post" class="btn btn-warning">
+      </form>
+
+    </div>
+  </div>  
+</div>

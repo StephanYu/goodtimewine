@@ -1,6 +1,6 @@
 'use strict';
 
-app.factory('AuthFactory', ['FURL', '$firebaseAuth', function(FURL, $firebaseAuth) {
+app.factory('AuthFactory', ['FURL', '$firebaseAuth', '$firebaseObject', function(FURL, $firebaseAuth, $firebaseObject) {
   
   var ref = new Firebase(FURL);
   var fbAuth = $firebaseAuth(ref);
@@ -41,8 +41,25 @@ app.factory('AuthFactory', ['FURL', '$firebaseAuth', function(FURL, $firebaseAut
 
     changePassword: function(user) {      
       return fbAuth.$changePassword({email: user.email, oldPassword: user.oldPass, newPassword: user.newPass});
+    },
+
+    signedIn: function() {
+      return !!Auth.user.provider; //using !! means (0, undefined, null, etc) = false | otherwise = true
     }
   };
+
+  fbAuth.$onAuth(function(authData) {
+    if(authData) {      
+      angular.copy(authData, Auth.user);
+      Auth.user.profile = $firebaseObject(ref.child('profile').child(authData.uid));      
+    } else {
+      if(Auth.user && Auth.user.profile) {
+        Auth.user.profile.$destroy();
+      }
+
+      angular.copy({}, Auth.user);
+    }
+  });
 
   function get_gravatar(email, size) {
 

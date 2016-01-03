@@ -13,16 +13,16 @@
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/angularjs-toaster/0.4.9/toaster.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.2/css/bootstrap-material-design.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.2/css/ripples.min.css" />
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.2.1/css/material.css" /> -->
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.2.1/css/ripples.css" /> -->
 
 
-    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="content/css/main.css">
     
   </head>
   <body ng-app="GoodTimeWine">
     <toaster-container toaster-options="{'time-out': 3000, 'close-button':true}"></toaster-container>
-    <div ng-include="'views/nav.html'"></div>
+    <!-- <div ng-include="'views/nav.html'"></div> -->
+    <!--Navigation bar directive that stays at the top of every page-->
+    <gtw-navbar current-user="currentUser"></gtw-navbar>
     <div class="jumbotron">
         <div ng-view></div>    
     </div>
@@ -30,7 +30,6 @@
     <script src="http://code.jquery.com/jquery-2.1.3.js"></script>    
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.js"></script>
 
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular.js"></script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-animate.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-resource.js"></script>
@@ -39,14 +38,10 @@
 
     <script src="https://cdn.firebase.com/js/client/2.3.2/firebase.js"></script>
     <script src="https://cdn.firebase.com/libs/angularfire/1.1.3/angularfire.min.js"></script>
-    <!-- <script src="https://cdn.firebase.com/js/client/2.1.0/firebase.js"></script> -->
-    <!-- <script src="https://cdn.firebase.com/libs/angularfire/0.9.1/angularfire.min.js"></script> -->
     <script src="http://cdnjs.cloudflare.com/ajax/libs/angularjs-toaster/0.4.9/toaster.js"></script>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.2/js/material.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.2/js/ripples.min.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.2.1/js/material.js"></script> -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.2.1/js/ripples.js"></script> -->
 
 
     <script>
@@ -55,11 +50,37 @@
         });
     </script>
 
-    <script src="scripts/app.js"></script>
+    <!-- <script src="scripts/app.js"></script>
     <script src="scripts/controllers/product_ctrl.js"></script>
     <script src="scripts/controllers/auth_ctrl.js"></script>
     <script src="scripts/controllers/nav_ctrl.js"></script>
-    <script src="scripts/services/auth_fcty.js"></script>
+    <script src="scripts/services/auth_fcty.js"></script> -->
+    
+    <!-- main app module -->
+    <script src="app/app.module.js"></script>
 
+    <!-- auth module -->
+    <script src="app/auth/auth.module.js"></script>
+    <script src="app/auth/auth.routes.js"></script>
+    <script src="app/auth/auth.controller.js"></script>
+    <script src="app/auth/auth.service.js"></script>
+    
+    <!-- core module -->
+    <script src="app/core/core.module.js"></script>
+    <script src="app/core/constants.js"></script>
+    <script src="app/core/firebaseData.service.js"></script>
+
+    <!-- landing module -->
+    <script src="app/landing/landing.module.js"></script> 
+    <script src="app/landing/landing.routes.js"></script> 
+
+    <!-- layout module -->
+    <script src="app/layout/layout.module.js"></script>
+    <script src="app/layout/navbar.directive.js"></script>
+
+    <!-- product module  -->
+    <script src="app/product/product.module.js"></script>
+    <script src="app/product/product.routes.js"></script>
+    <script src="app/product/product.controller.js"></script>
 </body>
 </html>
