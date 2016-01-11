@@ -20,6 +20,7 @@
 
     vm.isLoggedIn = authService.isLoggedIn;
     vm.login = authService.login;
+    vm.register = authService.register;
     vm.logout = logout;
 
     function logout() {

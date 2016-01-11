@@ -7,6 +7,7 @@
       'ngRoute',
       // Third party modules
       'firebase',
+      'ui.gravatar',
       // Custom modules
       'app.auth',
       'app.core',

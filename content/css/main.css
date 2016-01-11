@@ -13,7 +13,7 @@ a, a:hover, a:focus {
 /* Starter template */
 
 body {
-    padding-top: 80px;
+    padding-top: 60px;
 }
 
 .starter-template {
@@ -49,6 +49,7 @@ body {
 
 .img-circle.gravatar {
   width: 30px;
+  height: 30px;
 }
 
 /* Panel */
@@ -164,7 +165,7 @@ body {
   font-size: 12px;
 }
 
-.img-circle.comment.gravatar {
+/*.img-circle.comment.gravatar {
   width: 35px;
   margin-right: 5px;
-}
+}*/
